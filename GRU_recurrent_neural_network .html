@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+ <head>
+	<title>GRU</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- D3.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+  <!-- jQuery -->  
+   <script type="text/javascript" src="jquery.js"></script>
+  <!-- Plotly.js -->   
+  <script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
+  <script type="text/javascript" src="matrix.js"></script>
+  <script type="text/javascript" src="GRU.js"></script>
+
+
+ </head>
+<body>
+ <h1>recurrent neural network</h1>
+ <p id = "input" >input =[[0,1,1,1,0,1,0,1,0,1]]</p>
+ <p id = "result" ></p>
+ <div id="myDiv1" style="width:600px;height:400px;"></div>
+
+<script type="text/javascript">
+  var input = [[0,1,1,1,0,1,0,1,0,1]];
+       
+
+  var iter = 0;
+  var trace2 = {
+  x: [], 
+  y: [], 
+  mode: "lines+markers", 
+  type: "scatter"
+ 
+  };
+
+  var layout = {
+     title: "Loss",
+
+  };
+var data1 = [trace2];
+
+
+Plotly.plot("myDiv1", data1,layout);
+var point = 0;
+var cal;
+
+
+
+
+
+function plot1(){
+  trace2.y.push(F[1]);
+
+  trace2.x.push(iter);
+  point++;
+  Plotly.redraw("myDiv1");
+  iter += 1;
+  }
+
+function plot(){
+F = GRU(input);
+plot1();
+}
+
+
+
+      
+var ssss = setInterval(function(){ plot()}, 250);
+
+
+
+
+
+</script>
+</body>
+</html>
