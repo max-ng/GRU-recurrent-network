@@ -1,4 +1,4 @@
- // Max Ng Kei Sing 2016 //
+ // Max Ng //
 
        var rate = 0.01;
        var w_x = Math.random() - 0.5 ;
